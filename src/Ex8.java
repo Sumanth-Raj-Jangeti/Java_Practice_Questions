@@ -7,15 +7,15 @@ public class Ex8 {
         System.out.println("Enter a String:");
         String str=sc.nextLine();
         System.out.println("Enter a Character to count:");
-        char targetchar=sc.next().charAt(0);
+        char target=sc.next().charAt(0);
         int count=0;
         for(int i=0;i<str.length();i++)
         {
-            if(str.charAt(i)==targetchar)
+            if(str.charAt(i)==target)
             {
                 count++;
             }
         }
-        System.out.println(count);
+        System.out.println("Freq of characters:"+count);
     }
 }
