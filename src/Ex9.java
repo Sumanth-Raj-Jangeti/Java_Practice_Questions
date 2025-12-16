@@ -12,7 +12,7 @@ public class Ex9 {
             char ch=str.charAt(i);
             if(ch!=' ')
             {
-                word+=ch; //adding character to a new string "word"
+                word+=ch; //adding characters to a new string "word"
             }
             else
             {
