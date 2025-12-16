@@ -6,13 +6,13 @@ public class Ex11 {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a Number:");
         int num=sc.nextInt();
-        System.out.println("Factorial of "+num+" is:"+factorial(num));
+        System.out.println("Factorial of "+num+" is:"+factorial(num)); //Method Call
     }
     public static int factorial(int n)
     {
         if(n==0 || n==1)
             return 1;
         else
-            return n * factorial(n-1);
+            return n * factorial(n-1);  // Method Call
     }
 }
