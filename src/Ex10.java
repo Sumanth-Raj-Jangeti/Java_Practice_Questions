@@ -6,7 +6,7 @@ public class Ex10 {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a String:");
         String str=sc.nextLine();
-        String upper="";
+        StringBuilder upper=new StringBuilder();
         for(int i=0;i<str.length();i++)
         {
             char ch=str.charAt(i);
@@ -14,7 +14,7 @@ public class Ex10 {
             {
                 ch=(char)(ch-32);
             }
-            upper+=ch;
+            upper.append(ch);
         }
         System.out.println("Upper Case:"+upper);
     }
