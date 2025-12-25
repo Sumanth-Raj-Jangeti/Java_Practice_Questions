@@ -13,7 +13,7 @@ public class Primes {
         rangeOfPrime(start,end); //Method Call
         System.out.println("Enter a Number to print prime digits:");
         int number=sc.nextInt();
-        extractPrimeDigits(number);
+        extractPrimeDigits(number); //Method Call
     }
     public static void isPrime(int n) //To check whether a given number is prime or not.
     {
