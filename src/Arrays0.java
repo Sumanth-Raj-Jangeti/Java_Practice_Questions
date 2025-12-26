@@ -1,4 +1,4 @@
-public class Arrays {
+public class Arrays0 {
     public static void main(String[] args) {
         //A program to find the sum & avg of elements in an array
         int[] arr={10,20,30,40,50};
