@@ -2,11 +2,11 @@ public class Arrays5 {
     public static void main(String[] args) {
         //LUC an array contains integers & special chars - WAP to print only integers & their sum...
         String[] arr={"12","@","456","&","%","10","#$%"};
-        filterInts(arr);
+        filterInts(arr); //Method Call
         String[] arr1={"ab12cd34","100","@","$","a1b2","12"};
-        extractInts(arr1);
+        extractInts(arr1); //Method Call
     }
-    public static void filterInts(String[] arr)
+    public static void filterInts(String[] arr) //This Method fails if we have "ab12cd34"
     {
         int sum=0;
         System.out.println("Integer values in an arr:");
@@ -25,7 +25,7 @@ public class Arrays5 {
         }
         System.out.println("Total Integer Values in arr:"+sum);
     }
-    public static void extractInts(String[] arr1)
+    public static void extractInts(String[] arr1) //This method works for "ab12cd34"
     {
         int sum=0;
         System.out.println("Integer Values in arr1:");
