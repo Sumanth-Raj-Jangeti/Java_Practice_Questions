@@ -118,12 +118,12 @@ public class Arrays7 {
         System.out.print("Duplicates Elements by using Index Marking:");
         for (int i = 0; i < arr.length; i++) {
             int index = Math.abs(arr[i]);
-            if (arr[index] < 0) {
+            if (arr[index] > 0) {
+                arr[index] = -arr[index]; // first visit
+            }
+            else if (arr[index] < 0) {
                 System.out.print(index + " ");
                 arr[index] = 0;   // mark as already printed
-            }
-            else if (arr[index] > 0) {
-                arr[index] = -arr[index]; // first visit
             }
         }
     }
