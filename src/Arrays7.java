@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class Arrays7 {
     public static void main(String[] args) {
@@ -9,6 +10,7 @@ public class Arrays7 {
         duplicates(arr1);      //Method Call
         uniqueDuplicates(arr1);//Method Call
         knowDuplicates(arr2);  //Method Call
+        fastDuplicates(arr1);  //Method Call
         findDuplicates(arr1);  //Method Call
         extractDuplicates(arr1);//Method Call
     }
@@ -69,9 +71,36 @@ public class Arrays7 {
             }
         }
     }
-    public static void findDuplicates(int[] arr) //TC:O(n) & SC:O(n)
+    public static void fastDuplicates(int[] arr) //TC:O(n) & SC:O(n)
     {
-        HashSet<Integer> set=new HashSet<>();
+        //By using freq[].But this method fails if array has -ve values, elements are large.
+        int max=arr[0];
+        for(int i=1;i< arr.length;i++)
+        {
+            if(arr[i]>max)
+            {
+                max=arr[i];
+            }
+        }
+        //Creating a freq[].
+        int[] freq=new int[max+1];
+        //Store freq's of each element in freq[].
+        for(int i=0;i<freq.length;i++)
+        {
+            freq[arr[i]]++;
+        }
+        System.out.println("\nDuplicate Elements are:");
+        for (int i=0;i< freq.length;i++)
+        {
+            if(freq[i]>1)
+            {
+                System.out.print(i+" ");
+            }
+        }
+    }
+    public static void findDuplicates(int[] arr) //TC:O(n) & SC:O(n)
+    {                                            //Handles -ve values.
+        LinkedHashSet<Integer> set=new LinkedHashSet<>(); //To preserve the insertion order...
         HashSet<Integer> duplicates=new HashSet<>();
         for(int numbers:arr)
         {
@@ -81,7 +110,8 @@ public class Arrays7 {
                 duplicates.add(numbers);
             }
         }
-        System.out.println("\nDuplicate Elements by using HashSet:"+duplicates);
+        System.out.println("\nUnique Elements are:"+set);
+        System.out.println("Duplicate Elements by using HashSet:"+duplicates);
     }
     public static void extractDuplicates(int[] arr) //TC:O(n) & SC:O(1)
     {   //Index Marking...
