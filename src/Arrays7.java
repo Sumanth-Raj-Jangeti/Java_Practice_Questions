@@ -7,12 +7,12 @@ public class Arrays7 {
         //A program to find duplicate elements in an array...
         int[] arr1={1,4,6,5,2,1,7,2,1,2};
         int[] arr2={8,8,9,9,9,1,2,2,5,5,5,10,10};
-        duplicates(arr1);      //Method Call
-        uniqueDuplicates(arr1);//Method Call
-        knowDuplicates(arr2);  //Method Call
-        fastDuplicates(arr1);  //Method Call
-        findDuplicates(arr1);  //Method Call
-        extractDuplicates(arr1);//Method Call
+        duplicates(arr1);      //Method Call - Nested Approach
+        uniqueDuplicates(arr1);//Method Call - Nested Approach with a feature(print duplicates only once)
+        knowDuplicates(arr2);  //Method Call - Sorted+scan
+        fastDuplicates(arr1);  //Method Call - Freq[] Approach
+        findDuplicates(arr1);  //Method Call - HashSet Approach
+        extractDuplicates(arr1);//Method Call - Index Marking Approach
     }
     public static void duplicates(int[] arr) //TC:O(n^2) & SC:O(1)-> in-place
     {
@@ -90,11 +90,19 @@ public class Arrays7 {
             freq[arr[i]]++;
         }
         System.out.println("\nDuplicate Elements are:");
-        for (int i=0;i< freq.length;i++)
+       /* for (int i=0;i< freq.length;i++) //It doesn't preserve the original order
         {
             if(freq[i]>1)
             {
                 System.out.print(i+" ");
+            }
+        }*/
+        for(int i=0;i<arr.length;i++) //Preserves the original order
+        {
+            if(freq[arr[i]]>1)
+            {
+                System.out.print(arr[i]+" ");
+                freq[arr[i]]=0;
             }
         }
     }
