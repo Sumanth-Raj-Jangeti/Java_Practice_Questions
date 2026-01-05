@@ -5,7 +5,7 @@ public class Arrays9 {
        double avg=0;
        for(int i=0;i<a.length;i++)
        {
-           int n=a[i];
+           int n=a[i]; //Storing all array elements one by one is n
            int factorCount=0;
            for(int j=1;j<=n;j++)
            {
