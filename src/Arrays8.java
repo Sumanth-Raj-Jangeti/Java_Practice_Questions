@@ -1,19 +1,19 @@
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
 public class Arrays8 {
     public static void main(String[] args) {
         //A program to remove duplicates from an array...
         int[] arr={1,4,6,5,2,1,7,2,1,2}; // Unsorted Array
-        int[] arr1={1,3,3,5,6,6,6}; //Sorted Array
         int[] arr2={1,4,6,5,2,1,7,2,1,2};
         int[] uniqueArr= removeDuplicates(arr);    //Method Call - Nested Approach
         System.out.println("Array after removing duplicates(NESTED LOOPS):"+Arrays.toString(uniqueArr));
         deleteDuplicates(arr);       //Method Call - Sorting+scan
-        deleteDuplicates(arr1);      //Method Call - Sorting+scan
         uniqueElements(arr2);        //Method Call - HashSet Approach
+        uniqueEle(arr2);             //Method Call - HashMap Approach
         findUniqueElements(arr2);    //Method Call - Freq[] Approach
-        clearDuplicates(arr1);       //Method Call - Index Marking Approach
+        clearDuplicates(arr);       //Method Call - Index Marking Approach
     }
     public static int[] removeDuplicates(int[] arr) //By using Nested Loops
     {                                               //TC:O(n^2) & SC:O(n)
@@ -67,6 +67,19 @@ public class Arrays8 {
         }
         System.out.print("\nArray after removing duplicates(HASHSET):"+set);
     }
+    public static void uniqueEle(int[] arr)
+    {
+        LinkedHashMap<Integer,Integer> map=new LinkedHashMap<>();
+        for(int num:arr)
+        {
+            map.put(num, map.getOrDefault(num,0)+1);
+        }
+        System.out.println("\nafter duplicates removal(HASHMAP):");
+        for(int key: map.keySet())
+        {
+            System.out.print(key+" ");
+        }
+    }
     public static void findUniqueElements(int[] arr)
     {
         //By using freq[]. TC:O(n) & SC:O(n)
@@ -106,11 +119,15 @@ public class Arrays8 {
     public static void clearDuplicates(int[] arr)
     {
         //By using Index Marking -> TC:O(n) & SC:O(1)
+        //index marking only works if :
+        //all elements are +ves.
+        //all elements shd be strictly less than the array's length.
+        //Insertion order is not preserved.
         System.out.println("\nArray after removing duplicates(Index Marking):");
         for(int i=0;i< arr.length;i++)
         {
             int index=Math.abs(arr[i]);
-            if(arr[index]>=0)
+            if(index< arr.length && arr[index]>0)
             {
                 System.out.print(index+" ");
                 arr[index]=-arr[index];

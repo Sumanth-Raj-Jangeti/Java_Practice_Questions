@@ -3,13 +3,18 @@ import java.util.stream.IntStream;
 
 public class Arrays6 {
     public static void main(String[] args) {
-        int[] arr1={2,4,6};
-        int[] arr2={1,3,5,7,9};
-        mergeAlternatively(arr1,arr2); //Method Call
-        mergeSorted(arr1,arr2);        //Method Call
-        merge(arr1,arr2);              //Method Call
+        int[] a={2,4,6};
+        int[] b={1,3,5,7,9};
+        int[] c={2,3,5,7};
+        mergeAlternatively(a,b);              //Method Call
+        int[] temp = mergeSorted(a,b);        //Method Call
+        int[] mergedArr=mergeSorted(temp,c);  //Method Call
+        System.out.println("Merge 3 arrays:"+Arrays.toString(mergedArr));
+        merge(a,b,c);                         //Method Call
+        int[] finalMergedArr=fastMerge(a,b,c);//method Call
+        System.out.println("Merged Array by using (System.arraycopy):"+Arrays.toString(finalMergedArr));
     }
-    public static void mergeAlternatively(int[] arr1,int[] arr2)
+    public static void mergeAlternatively(int[] arr1,int[] arr2) // TC & SC : O(n1+n2)
     {
         int n1=arr1.length;
         int n2=arr2.length;
@@ -32,7 +37,7 @@ public class Arrays6 {
         }
         System.out.println("Merged Array(Alternatively):"+ Arrays.toString(mergedArray));
     }
-    public static void mergeSorted(int[] arr1,int[] arr2)
+    public static int[] mergeSorted(int[] arr1,int[] arr2)  // TC & SC : O(n1+n2)
     {
         int n1=arr1.length;
         int n2=arr2.length;
@@ -60,11 +65,21 @@ public class Arrays6 {
         {
             mergedArray[k++]=arr2[j++];
         }
-        System.out.println("Merged Array in sorted order:"+Arrays.toString(mergedArray));
+        return mergedArray;
     }
-    public static void merge(int[] arr1,int[] arr2) //By using streams...
+    public static void merge(int[] arr1,int[] arr2,int[] arr3) //By using streams...
     {
-        int[] merged= IntStream.concat(Arrays.stream(arr1),Arrays.stream(arr2)).toArray();
-        System.out.println("Merged Array:"+Arrays.toString(merged));
+        int[] merged=IntStream
+                .concat(IntStream.concat(Arrays.stream(arr1),Arrays.stream(arr2)),Arrays.stream(arr3))
+                        .toArray();
+        System.out.println("Merged Array by using streams:"+Arrays.toString(merged));
+    }
+    public static int[] fastMerge(int[] arr1,int[] arr2,int[] arr3) // TC & SC : O(n1 + n2 + n3)
+    {
+        int[] mergedArray=new int[arr1.length+ arr2.length+ arr3.length];
+        System.arraycopy(arr1,0,mergedArray,0,arr1.length);
+        System.arraycopy(arr2,0,mergedArray,arr1.length,arr2.length);
+        System.arraycopy(arr3,0,mergedArray,arr1.length+arr2.length,arr3.length);
+        return mergedArray;
     }
 }
