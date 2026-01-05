@@ -1,18 +1,19 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 public class Arrays7 {
     public static void main(String[] args) {
         //A program to find duplicate elements in an array...
-        int[] arr1={1,4,6,5,2,1,7,2,1,2};
-        int[] arr2={8,8,9,9,9,1,2,2,5,5,5,10,10};
+        int[] arr1={1,4,6,5,2,1,7,2,1,2}; //Modified because of index marking
         duplicates(arr1);      //Method Call - Nested Approach
         uniqueDuplicates(arr1);//Method Call - Nested Approach with a feature(print duplicates only once)
-        knowDuplicates(arr2);  //Method Call - Sorted+scan
+        knowDuplicates(arr1);  //Method Call - Sorted+scan
         fastDuplicates(arr1);  //Method Call - Freq[] Approach
         findDuplicates(arr1);  //Method Call - HashSet Approach
-        extractDuplicates(arr1);//Method Call - Index Marking Approach
+        searchDuplicates(arr1);//Method Call - HashMap Approach
+        //extractDuplicates(arr1);//Method Call - Index Marking Approach
     }
     public static void duplicates(int[] arr) //TC:O(n^2) & SC:O(1)-> in-place
     {
@@ -59,7 +60,7 @@ public class Arrays7 {
     public static void knowDuplicates(int[] arr) //TC:O(n log n) & SC:O(1)-> in-place
     {
         Arrays.sort(arr); //Sorts the array->This method is used only when array order is not mandatory...
-        System.out.println("\nDuplicate elements are:");
+        System.out.println("\nDuplicates by using sorted+scan:");
         for(int i=1;i< arr.length;i++)
         {
             if(arr[i]==arr[i-1]) //finds duplicates.
@@ -89,7 +90,7 @@ public class Arrays7 {
         {
             freq[arr[i]]++;
         }
-        System.out.println("\nDuplicate Elements are:");
+        System.out.println("\nDuplicates by using freq[]:");
        /* for (int i=0;i< freq.length;i++) //It doesn't preserve the original order
         {
             if(freq[i]>1)
@@ -118,8 +119,46 @@ public class Arrays7 {
                 duplicates.add(numbers);
             }
         }
-        System.out.println("\nUnique Elements are:"+set);
-        System.out.println("Duplicate Elements by using HashSet:"+duplicates);
+        //System.out.println("\nUnique Elements are:"+set);
+        System.out.println("\nDuplicate Elements by using HashSet:"+duplicates);
+    }
+    public static void searchDuplicates(int[] arr)
+    {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int num:arr)
+        {
+            //counting freq's...
+            if(map.containsKey(num)) //.containsKey(obj key)->checks if key exists or not & it returns true or false.
+            {
+                map.put(num,map.get(num)+1);
+            }
+            else
+            {
+                map.put(num,1);
+            }
+        }
+        System.out.println("Duplicates by using HashMap:");
+        for(int key:map.keySet()) //.keySet()->returns a set of all keys.
+        {
+            if(map.get(key)>1)  //.get(obj key)->returns a value for the key (or) null if key is not found.
+            {
+                System.out.println(key);
+            }
+        }
+        /*
+        for(int num:arr)
+        {
+             map.put(num,map.getOrDefault(num,0)+1)
+        }
+        sout("Duplicate Elements:");
+        for(Map.Entry<Integer,Integer> entry:map.entrySet())
+        {
+             if(entry.getValue()>1)
+             {
+                 sout(entry.getKey());
+             }
+        }
+         */
     }
     public static void extractDuplicates(int[] arr) //TC:O(n) & SC:O(1)
     {   //Index Marking...
