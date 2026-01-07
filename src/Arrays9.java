@@ -5,7 +5,7 @@ public class Arrays9 {
     public static void main(String[] args) {
        //A program to remove duplicates from Two-Arrays...
         int[] a={1,4,6,5,2,1,7,2,1,2};
-        int[] b={2,4,6,8,10};
+        int[] b={2,2,4,4,6,8,10};
         int[] result=merge(a,b);
         System.out.println("Merged Array:"+Arrays.toString(result));
         removeDuplicates(result);
