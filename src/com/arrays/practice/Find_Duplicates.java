@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
-public class Arrays7 {
+public class Find_Duplicates {
     public static void main(String[] args) {
         //A program to find duplicate elements in an array...
         int[] arr1={1,4,6,5,2,1,7,2,1,2}; //Modified because of index marking

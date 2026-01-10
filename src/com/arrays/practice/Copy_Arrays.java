@@ -2,7 +2,7 @@ package com.arrays.practice;
 
 import java.util.Arrays;
 
-public class Arrays4 {
+public class Copy_Arrays {
     public static void main(String[] args) {
         //A program to copy one array to another
         // 1. Reference Copy
