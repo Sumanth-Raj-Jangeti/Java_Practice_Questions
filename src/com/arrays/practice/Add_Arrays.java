@@ -2,13 +2,13 @@ package com.arrays.practice;
 
 import java.util.Arrays;
 
-public class Arrays2 {
+public class Add_Arrays {
     public static void main(String[] args) {
         // A program to add 2 arrays
         int[] arr1={1,2,3,4,5};
         int[] arr2={6,7,8,9};
         //Creating object to call non-static methods
-        Arrays2 a=new Arrays2();
+        Add_Arrays a=new Add_Arrays();
         a.sumArrays(arr1,arr2); //Method Call
         //Calling static methods
         sumOfArrays(arr1,arr2); //Method Call

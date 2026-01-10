@@ -3,7 +3,7 @@ package com.arrays.practice;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
-public class Arrays9 {
+public class RemoveDuplicatesFrom_2Arrays {
     public static void main(String[] args) {
        //A program to remove duplicates from Two-Arrays...
         int[] a={1,4,6,5,2,1,7,2,1,2};

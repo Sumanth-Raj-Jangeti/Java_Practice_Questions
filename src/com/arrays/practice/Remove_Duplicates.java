@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
-public class Arrays8 {
+public class Remove_Duplicates {
     public static void main(String[] args) {
         //A program to remove duplicates from an array...
         int[] arr={1,4,6,5,2,1,7,2,1,2}; // Unsorted Array

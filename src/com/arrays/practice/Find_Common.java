@@ -1,6 +1,6 @@
 package com.arrays.practice;
 
-public class Arrays10{
+public class Find_Common{
     public static void main(String[] args) {
         //A program to find the common elements in 2 arrays...
         int[] a={1,4,6,5,2,1,7,2,1,2};

@@ -1,6 +1,6 @@
 package com.arrays.practice;
 
-public class Arrays5 {
+public class ExtractIntegersFromStrings {
     public static void main(String[] args) {
         //LUC an array contains integers & special chars - WAP to print only integers & their sum...
         String[] arr={"12","@","456","&","%","10","#$%"};

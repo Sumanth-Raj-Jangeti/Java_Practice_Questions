@@ -2,13 +2,13 @@ package com.arrays.practice;
 
 import java.util.Arrays;
 
-public class Arrays3 {
+public class Equal_or_Not {
     public static void main(String[] args) {
         //A program to check if 2 arrays are equal or not...
         //for 1D Arrays
         int[] arr1={1,2,3,4,5};
         int[] arr2={1,2,3,4,5};
-        Arrays3 a=new Arrays3();
+        Equal_or_Not a=new Equal_or_Not();
         System.out.println("1D Arrays are:"+a.isEqual1D(arr1,arr2));  //Method Call
         isEqual(arr1,arr2); //Method Call
         //for Multi-Dimensional Arrays

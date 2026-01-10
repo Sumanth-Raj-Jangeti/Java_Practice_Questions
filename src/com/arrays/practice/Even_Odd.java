@@ -1,6 +1,6 @@
 package com.arrays.practice;
 
-public class Arrays1 {
+public class Even_Odd {
     public static void main(String[] args) {
         //A program to print,count & return indexes for even & odd no.s in an array.
         int[] arr={1,2,3,4,5,6,7,8,9,10};

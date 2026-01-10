@@ -3,7 +3,7 @@ package com.arrays.practice;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Arrays6 {
+public class Merge_Arrays {
     public static void main(String[] args) {
         int[] a={2,4,6};
         int[] b={1,3,5,7,9};
