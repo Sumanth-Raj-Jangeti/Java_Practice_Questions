@@ -109,7 +109,7 @@ public class Primes {
                 p_avg=(double) p_sum/p_count;
             }
         }
-        System.out.println("Total com.arrays.practice.Primes:"+p_count);
-        System.out.println("Sum of com.arrays.practice.Primes: "+p_sum+"\nAvg of com.arrays.practice.Primes:"+p_avg);
+        System.out.println("Total Primes:"+p_count);
+        System.out.println("Sum of Primes: "+p_sum+"\nAvg of Primes:"+p_avg);
     }
 }
