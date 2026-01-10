@@ -1,6 +1,8 @@
+package com.arrays.practice;
+
 import java.util.Scanner;
 
-public class Ex11 {
+public class Find_Factorial {
     public static void main(String[] args) {
         //A program to find the factorial of a number using recursion.
         Scanner sc=new Scanner(System.in);
