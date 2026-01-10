@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 import java.util.Arrays;
 
 public class Arrays2 {

@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 public class Arrays5 {
     public static void main(String[] args) {
         //LUC an array contains integers & special chars - WAP to print only integers & their sum...

@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 import java.util.Arrays;
 import java.util.stream.IntStream;
 

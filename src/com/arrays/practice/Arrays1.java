@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 public class Arrays1 {
     public static void main(String[] args) {
         //A program to print,count & return indexes for even & odd no.s in an array.

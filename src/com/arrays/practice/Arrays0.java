@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 public class Arrays0 {
     public static void main(String[] args) {
         //A program to find the sum & avg of elements in an array
