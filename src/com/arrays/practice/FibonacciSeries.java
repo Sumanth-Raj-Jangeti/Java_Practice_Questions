@@ -1,3 +1,5 @@
+package com.arrays.practice;
+
 import java.util.Scanner;
 
 //Fibonacci Series: A series of numbers in which each number is the sum of 2 preceding numbers.
