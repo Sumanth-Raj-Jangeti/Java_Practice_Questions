@@ -1,6 +1,8 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Ex8 {
+public class Find_Occurrences_of_char {
     public static void main(String[] args) {
         //A program to count the freq of a given char...
         Scanner sc=new Scanner(System.in);

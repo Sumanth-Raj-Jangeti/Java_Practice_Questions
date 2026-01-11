@@ -1,8 +1,10 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Ex7 {
+public class Convert_Binary_to_Int_Manually {
     public static void main(String[] args) {
-        //Converting Binary to integer
+        //Converting Binary to integer.
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a Binary Number:");
         int binary1=sc.nextInt();

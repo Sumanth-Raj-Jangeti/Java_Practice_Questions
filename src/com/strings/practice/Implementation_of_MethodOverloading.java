@@ -1,6 +1,8 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Test {
+public class Implementation_of_MethodOverloading {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the 3 values:");

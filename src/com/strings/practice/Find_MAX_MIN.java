@@ -1,12 +1,14 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Ex4 {
+public class Find_MAX_MIN {
     public static void main(String[] args) {
         //Find the max and min word in a string
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a String:");
         String str=sc.nextLine();
-        //Split the string
+        //Split the string.
         String[] words=str.split(" ");
         String maxword=words[0];
         String minword=words[0];

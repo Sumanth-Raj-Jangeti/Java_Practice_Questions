@@ -1,6 +1,8 @@
+package com.strings.practice;
+
 import java.util.Arrays;
 
-public class Ex1 {
+public class ULDC_chars {
     public static void main(String[] args) {
         //wap to print,count,return indexes for uppercase,lowercase,digits,special chars in a given str.
         String str="Tiger runs @ The Speed of 100Km/Hr";
