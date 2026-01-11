@@ -1,8 +1,10 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Ex9 {
+public class Split_str_Manually {
     public static void main(String[] args) {
-        //split a string without using split()
+        //split a string without using split()...
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a String:");
         String str=sc.nextLine();

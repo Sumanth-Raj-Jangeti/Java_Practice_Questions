@@ -1,8 +1,10 @@
+package com.strings.practice;
+
 import java.util.Scanner;
 
-public class Ex10 {
+public class Convert_str_to_UC_LC_Manually {
     public static void main(String[] args) {
-        //A program to convert a given string to uppercase & Lowercase without using built-in methods
+        //A program to convert a given string to uppercase & Lowercase without using built-in methods.
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a String to convert into Uppercase:");
         String str=sc.nextLine();

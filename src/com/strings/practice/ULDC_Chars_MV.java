@@ -1,4 +1,6 @@
-public class Ex2 {
+package com.strings.practice;
+
+public class ULDC_Chars_MV {
     public static void main(String[] args) {
         String str="Tiger runs @ The Speed of 100Km/Hr";
         FindCount(str);
@@ -6,7 +8,7 @@ public class Ex2 {
     public static void FindCount(String s)
     {
         int u_count=0,l_count=0,d_count=0,s_count=0,index=0;
-        //Converting str to char array
+        //Converting str to char array.
         char[] ch =s.toCharArray();
         for(char c:ch)
         {
