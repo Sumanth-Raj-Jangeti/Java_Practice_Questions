@@ -1,6 +1,7 @@
 package com.arrays.practice;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Find_Common {
@@ -10,16 +11,22 @@ public class Find_Common {
         int[] b = {2, 2, 4, 4, 5, 5};
         commonEle(a, b); //Method Call
         commonUniqueEle(a, b);//Method Call
+
         System.out.println("\nCommon Elements(using Sorting + 2 pointers):");
         findCommonEle(a, b);//Method Call
+
         int[] c = {1, 4, 6, 5, 2, 1, 7, 2, 1, 2};
         int[] d = {2, 2, 4, 4, 5, 5};
         System.out.println("\nUnique Common Elements(using Sorting + 2 pointers):");
         findUniqueCommonEle(c, d);//Method Call
+
         int[] e={1,4,6,5,2,1,7,2,1,2};
         int[] f={2,2,4,4,5,5};
         System.out.println("\nCommon Elements(using HashSet):");
         getCommonEle(e,f);//Method Call
+
+        System.out.println("\nCommon Elements(using HashMap):");
+        printCommonEle(e,f);//Method Call
     }
 
     public static void commonEle(int[] arr1, int[] arr2) {
@@ -114,20 +121,73 @@ public class Find_Common {
         }
     }
     public static void getCommonEle(int[] arr1,int[] arr2)
-    {
-        HashSet<Integer> set = new HashSet<>();
-        //Adding arr1 elements in set.
-        for(int num:arr1)
+    {   //5. Using HashSet --> TC:O(n + m) & SC:O(n)
+        //Method 1.
+        HashSet<Integer> set = new HashSet<>(); //SC:O(n)
+        for(int num:arr1) //Adding arr1 elements in set. & TC:O(n)
         {
             set.add(num);
         }
-        for(int num:arr2)
+        for(int num:arr2)  //TC:O(m)
         {
-            if(set.contains(num))  //Check if number present in arr1 -> If yes, it is a common element then print it...
+            if(set.contains(num)) //Check if number present in arr1 -> If yes, it is a common element then print it...
             {
-                System.out.print(num+" ");
-                set.remove(num); //Avoids printing duplicates
+                System.out.print(num+" "); //Printing Common Elements...
+                set.remove(num); //Avoids printing duplicates.
             }
         }
+        //Method 2. TC:O(n+m) & SC:O(n+m)
+        /*
+              int[] a={1,2,3,4,5};
+              int[] b={3,4,6,7};
+              HashSet<Integer> set1 = new HashSet<>();
+              HashSet<Integer> set2 = new HashSet<>();
+              for(int num:a)
+              {
+                  set1.add(num);
+              }
+              for(int num:b)
+              {
+                  set1.add(num);
+              }
+              //Keep only common elements in set1.
+              set1.retainAll(set2);
+              System.out.println(set1);
+        */
+    }
+    public static void printCommonEle(int[] arr1,int[] arr2)
+    {
+        //6. Using HashMap --> TC:O(n + m) & SC:O(n)
+        //Method 1. including duplicates...
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int num:arr1)
+        {
+            map.put(num, map.getOrDefault(num,0)+1); //Adding (K,V) pairs...
+        }
+        for(int num:arr2) //Iterating through the 2nd array and print matches...
+        {
+            if(map.containsKey(num) && map.get(num)>0)
+            {
+                System.out.print(num+" ");
+                map.put(num, map.get(num)-1);
+            }
+        }
+        //Method 2.
+        //Excluding Duplicates...
+        /*
+              for(int num:arr1)
+              {                   //To find only unique common elements,
+                  map.put(num,1); //you must ensure each common value appears only once in the final result,
+              }                   //even if it is repeated in the original arrays.
+              System.out.println("Common Elements:");
+              for(int num:arr2)
+              {
+                  if(map.containsKey(num) && map.get(num)==1)
+                  {
+                       System.out.print(num+" ");
+                       map.put(num,0); //Overwriting the (K,V) pairs...
+                  }
+              }
+        */
     }
 }
