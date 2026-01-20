@@ -75,8 +75,8 @@ public class Find_Common {
         Arrays.sort(arr2); //TC:O(m log m)
         //Step-2 Declare & initialize 2 vars...
         int i = 0, j = 0;
-        while (i < arr1.length && j < arr2.length) //TC:O(n+m)
-        {                                           //So, the exact TC is:O(n log n) + O(m log m) + O(n+m)
+        while (i < arr1.length && j < arr2.length)  //TC:O(n+m)
+        {                                           //So, the exact TC is:O(n log n) + O(m log m) + O(n + m)
             if (arr1[i] == arr2[j])                 //when simplifying TC always keep the term that grows the
             {                                       //fastest and drop the rest.
                 System.out.print(arr1[i] + " ");    //Overall TC : O(n log n + m log m)
