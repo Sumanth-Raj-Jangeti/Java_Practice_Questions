@@ -102,6 +102,13 @@ public class Triangle_Star {
             System.out.println();
         }
     }
+    /*  WAP to print :
+                         *
+                        **
+                       ***
+                        **
+                         *
+     */
     public static void leftHead(int n)
     {
         System.out.println("\nLEFT HEAD:");
