@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Find_Common {
+public class Find_Common_In_2 {
     public static void main(String[] args) {
         //A program to find the common elements in 2 arrays...
         int[] a = {1, 4, 6, 5, 2, 1, 7, 2, 1, 2};
@@ -81,7 +81,7 @@ public class Find_Common {
             {                                       //fastest and drop the rest.
                 System.out.print(arr1[i] + " ");    //Overall TC : O(n log n + m log m)
                 i++;                                //Note: After execution of this method original arrays are modified
-                j++;                                // So it'll better if start working on new arrays.
+                j++;                                //So it'll better if start working on new arrays.
             } else if (arr1[i] < arr2[j]) {
                 i++;
             } else {
@@ -91,7 +91,7 @@ public class Find_Common {
     }
 
     public static void findUniqueCommonEle(int[] arr1, int[] arr2) {
-        //4. Using Sorting + 2 Pointers --> TC:O(n log n + m log m) & SC:O(1) - This approach also avoids duplicates...
+        //4. Using Sorting + 2 Pointers --> TC:O(n log n + m log m) & SC:O(1) - This approach avoids duplicates...
         //Step-1 Sort the arrays
         Arrays.sort(arr1); //TC:O(n log n)
         Arrays.sort(arr2); //TC:O(m log m)
