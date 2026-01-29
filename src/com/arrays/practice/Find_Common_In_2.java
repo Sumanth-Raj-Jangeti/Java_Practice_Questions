@@ -130,7 +130,7 @@ public class Find_Common_In_2 {
         }
         for(int num:arr2)  //TC:O(m)
         {
-            if(set.contains(num)) //Check if number present in arr1 -> If yes, it is a common element then print it...
+            if(set.contains(num)) //Check if number present in set -> If yes, it is a common element then print it...
             {
                 System.out.print(num+" "); //Printing Common Elements...
                 set.remove(num); //Avoids printing duplicates.
@@ -151,8 +151,8 @@ public class Find_Common_In_2 {
                   set1.add(num);
               }
               //Keep only common elements in set1.
-              set1.retainAll(set2);
-              System.out.println(set1);
+              set1.retainAll(set2);      //modifying set1, now set1 will contain only common elements
+              System.out.println(set1);  //if you want to preserve set1 then store set1 in some temp_set
         */
     }
     public static void printCommonEle(int[] arr1,int[] arr2)
