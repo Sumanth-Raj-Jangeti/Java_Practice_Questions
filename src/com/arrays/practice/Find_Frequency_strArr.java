@@ -90,7 +90,7 @@ public class Find_Frequency_strArr {
     }
     public static void printFrequencies(String[] words)
     {
-        //Method 5: A HashSet Approach --> TC:O(n^2) & SC:O(n)
+        //Method 4: A HashSet Approach --> TC:O(n^2) & SC:O(n)
         //Creating a HashSet
         System.out.println("\nFrequencies:HashSet");
         Set<String> set = new LinkedHashSet<>();
