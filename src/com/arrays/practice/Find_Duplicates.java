@@ -88,7 +88,7 @@ public class Find_Duplicates {
         //Creating a freq[].
         int[] freq=new int[max+1];
         //Store freq's of each element in freq[].
-        for(int i=0;i<freq.length;i++)
+        for(int i=0;i<arr.length;i++)
         {
             freq[arr[i]]++;
         }
