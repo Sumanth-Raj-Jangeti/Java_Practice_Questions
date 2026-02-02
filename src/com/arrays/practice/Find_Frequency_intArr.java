@@ -126,7 +126,7 @@ public class Find_Frequency_intArr {
     }
     public static void printFrequencies(int[] arr)
     {
-        //Method 5: A HashSet Approach --> TC:O(n) & SC:O(n)
+        //Method 5: A HashSet Approach --> TC:O(n^2) & SC:O(n)
         //Creating a HashSet
         System.out.println("\nFrequencies:HashSet");
         Set<Integer> set = new LinkedHashSet<>();
