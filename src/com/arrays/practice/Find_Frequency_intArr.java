@@ -31,7 +31,7 @@ public class Find_Frequency_intArr {
                     break;
                 }
             }
-            if(alreadyCounted)  continue;;
+            if(alreadyCounted)  continue;
             //Count the frequencies
             int count=1;
             for(int j=i+1;j<arr.length;j++) //TC:O(n)
@@ -49,7 +49,7 @@ public class Find_Frequency_intArr {
         /*
             Method 2. Sorting Approach --> A better approach when compared with nested loop.
             TC:O(n log n) & SC:O(1)
-            For suppose if the given array is by default sorted then it is the most optimized approach.
+            For suppose if the given array is by default sorted then, this is the most optimized approach.
             This method has limitations like:
              --> original array is modified.
              --> maintains no insertion order.
@@ -94,7 +94,7 @@ public class Find_Frequency_intArr {
         //Store freq's of each & every element in freq[].
         for(int i=0;i<arr.length;i++)
         {
-            freq[arr[i]-min]++; //we are shifting the indexes becoz we have -ve no.s.
+            freq[arr[i]-min]++; //we are shifting the indexes because we have -ve no.s.
         }
         //Print elements along with their frequencies - Also preserve their order.
         for(int i=0;i<arr.length;i++)

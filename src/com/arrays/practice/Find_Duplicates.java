@@ -121,8 +121,8 @@ public class Find_Duplicates {
                 duplicates.add(numbers);
             }
         }
-        //System.out.println("\nUnique Elements are:"+set);
-        System.out.println("\nDuplicate Elements by using HashSet:"+duplicates);
+        System.out.println("\nDistinct Elements are:"+set);
+        System.out.println("Duplicate Elements by using HashSet:"+duplicates);
     }
     public static void searchDuplicates(int[] arr)
     {
