@@ -173,15 +173,16 @@ public class Find_All_Repeated_NonRepeated {
     {
         //Method 5. Using HashSet Approach -- TC:O(n) & SC:O(n)
         /*
-             .add(Integer e) returns:
-             true → if the element was NOT present and was added
-             false → if the element was ALREADY present (no change)
+             set.add(Integer e) returns:
+             true --> if the element was NOT present and was added.
+             false --> if the element was ALREADY present (no change)
          */
         System.out.println("\n\n***Set Approach***");
-        //1. Creating Set.
+        //1. Creating 2 Sets.
         Set<Integer> distinct = new LinkedHashSet<>();
         Set<Integer> duplicates = new LinkedHashSet<>();
         //2. loop & add all arr elements in set-->distinct
+        //same logic as finding duplicates...
         for(int num:arr)
         {
             if(!(distinct.add(num)))
