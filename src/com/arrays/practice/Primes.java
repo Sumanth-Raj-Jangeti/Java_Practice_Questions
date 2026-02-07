@@ -1,4 +1,5 @@
-package com.arrays.practice;//Prime No:Any (Natural Number)>1 and which has only two factors one and itself is known as prime number.
+package com.arrays.practice;
+//Prime No:Any (Natural Number)>1 and which has only two factors one and itself is known as prime number.
 //EX: 2,3,5,7,11,13,17,19 and so on.
 import java.util.Scanner;
 
