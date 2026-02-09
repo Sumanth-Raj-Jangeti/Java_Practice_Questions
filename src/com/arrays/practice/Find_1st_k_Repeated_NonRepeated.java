@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Find_First_k_Repeated_NonRepeated {
+public class Find_1st_k_Repeated_NonRepeated {
     public static void main(String[] args) {
         System.out.println("\n***K REPEATED & NON-REPEATED ELEMENTS***");
         int[] arr1={1,4,6,5,2,1,7,2,1,2};
