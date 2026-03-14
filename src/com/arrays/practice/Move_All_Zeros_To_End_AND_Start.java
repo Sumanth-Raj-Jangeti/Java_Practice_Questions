@@ -3,13 +3,13 @@ package com.arrays.practice;
 public class Move_All_Zeros_To_End_AND_Start {
     public static void main(String[] args) {
         moveZerosToEnd(new int[]{10,0,20,0,30,40,0,0,50,0}); //Passing Anonymous Arrays
-        moveAllZerosToEnd(new int[]{10,0,20,0,30,40,0,0,50,0});
+        shiftZerosToEnd(new int[]{10,0,20,0,30,40,0,0,50,0});
         moveZerosToStart(new int[]{10,0,20,0,30,40,0,0,50,0});
-        moveAllZerosToStart(new int[]{10,0,20,0,30,40,0,0,50,0});
+        shiftZerosToStart(new int[]{10,0,20,0,30,40,0,0,50,0});
     }
     public static void moveZerosToEnd(int[] arr)
     {
-        //Method 1: Two-Pointers Approach & in-place --> TC:O(n) & SC:O(1)
+        //Method 1: Two-Pointers + in-place Approach  --> TC:O(n) & SC:O(1)
         int newIndex=0;
         //We need to iterate over the given array (Left To Right)
         for(int i=0;i<arr.length;i++)
@@ -34,7 +34,7 @@ public class Move_All_Zeros_To_End_AND_Start {
             System.out.print(x+" ");
         }
     }
-    public static void moveAllZerosToEnd(int[] arr)
+    public static void shiftZerosToEnd(int[] arr)
     {
         //Method 2: Two Pointers + Swapping --> TC:O(n) & SC:O(1)
         int j=0;
@@ -62,8 +62,7 @@ public class Move_All_Zeros_To_End_AND_Start {
     }
     public static void moveZerosToStart(int[] arr)
     {
-        //Method 1. Two-Pointers + in-place --> TC:O() & SC:O()
-        //We'll need a new index...
+        //Method 1. Two-Pointers + in-place --> TC:O(n) & SC:O(1)
         int newIndex=arr.length-1;
         //We need to iterate over the given array (Right to Left)
         for(int i=arr.length-1;i>=0;i--)
@@ -87,7 +86,7 @@ public class Move_All_Zeros_To_End_AND_Start {
             System.out.print(x+" ");
         }
     }
-    public static void moveAllZerosToStart(int[] arr)
+    public static void shiftZerosToStart(int[] arr)
     {
         //Method 2: Two Pointers + Swapping --> TC:O(n) & SC:O(1)
         int j=arr.length-1;
