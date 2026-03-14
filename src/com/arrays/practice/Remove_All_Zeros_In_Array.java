@@ -2,9 +2,10 @@ package com.arrays.practice;
 
 public class Remove_All_Zeros_In_Array {
     public static void main(String[] args) {
-        int[] arr={10,0,20,0,30,40,0,0,50};
-        removeZeros(arr);
-        deleteZeros(arr);
+        int[] arr1={10,0,20,0,30,40,0,0,50};
+        removeZeros(arr1);
+        int[] arr2=new int[]{10,0,20,0,30,40,0,0,50,0,60};
+        deleteZeros(arr2);
     }
     public static void removeZeros(int[] arr)
     {
@@ -12,6 +13,7 @@ public class Remove_All_Zeros_In_Array {
         //Step 1. Count all non-zero elements
         int count=0;
         for (int i : arr) //TC:O(n)
+
         {
             if (i != 0) {
                 count++;
@@ -37,8 +39,11 @@ public class Remove_All_Zeros_In_Array {
     }
     public static void deleteZeros(int[] arr)
     {
-        //Method 2: in-place approach
-        // We need a new index...
+        //Method 2: A in-place approach --> TC:O(n) & SC:O(1)
+        /*
+           Limitations: 1. Original Array Modification.
+                        2. Extra Space is used.
+        */
         int newIndex=0;
         for(int i:arr)
         {
