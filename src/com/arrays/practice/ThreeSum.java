@@ -1,9 +1,6 @@
 package com.arrays.practice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /*
       Problem Statement - 3 Sum
@@ -14,10 +11,12 @@ import java.util.List;
 public class ThreeSum {
     public static void main(String[] args) {
         int[] arr={-1,0,1,2,-1,-4};
-        List<List<Integer>> result=threeSumUsingBruteForce(arr);
-        System.out.println(result);
-        List<List<Integer>> res=threeSumTwoPointers(arr);
-        System.out.println(res);
+        List<List<Integer>> r1=threeSumUsingBruteForce(arr);
+        System.out.println(r1);
+        List<List<Integer>> r2=threeSumUsingHashSet(arr);
+        System.out.println(r2);
+        List<List<Integer>> r3 =threeSumTwoPointers(arr);
+        System.out.println(r3);
     }
     public static List<List<Integer>> threeSumUsingBruteForce(int[] arr)
     {
@@ -47,9 +46,33 @@ public class ThreeSum {
         }
         return temp;
     }
+    public static List<List<Integer>> threeSumUsingHashSet(int[] arr)
+    {
+        //Method 2. Using Brute force + HashSet --> TC:O(n^3) & SC:O(n^2)
+        Set<List<Integer>> temp=new HashSet<>();
+        for(int i=0;i<arr.length-2;i++)
+        {
+            for(int j=i+1;j<arr.length-1;j++)
+            {
+                for(int k=j+1;k<arr.length;k++)
+                {
+                    int sum=arr[i]+arr[j]+arr[k];
+                    if(sum==0)
+                    {
+                       List<Integer> triplet=Arrays.asList(arr[i],arr[j],arr[k]);
+                       Collections.sort(triplet); //Sorting is needed so that triplets have the same order,
+                                                 // allowing the Set to recognize duplicates using equals().
+                        temp.add(triplet);
+                    }
+                }
+            }
+
+        }
+        return new ArrayList<>(temp);
+    }
     public static List<List<Integer>> threeSumTwoPointers(int[] arr)
     {
-        //Method 2. Using Two_Pointers technique --> TC:O(n^2) & SC:O(n^2)
+        //Method 3. Using Two_Pointers technique --> TC:O(n^2) & SC:O(n^2)
         //Sort the given array.
         Arrays.sort(arr);
         //Creating List of Lists to store triplets.
