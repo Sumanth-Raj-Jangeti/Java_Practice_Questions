@@ -5,83 +5,117 @@ import java.util.stream.IntStream;
 
 public class Merge_Arrays {
     public static void main(String[] args) {
-        int[] a={2,4,6};
-        int[] b={1,3,5,7,9};
-        int[] c={2,3,5,7};
-        mergeAlternatively(a,b);              //Method Call
-        int[] temp = mergeSorted(a,b);        //Method Call
-        int[] mergedArr=mergeSorted(temp,c);  //Method Call
-        System.out.println("Merge 3 arrays:"+Arrays.toString(mergedArr));
-        merge(a,b,c);                         //Method Call
-        int[] finalMergedArr=fastMerge(a,b,c);//method Call
-        System.out.println("Merged Array by using (System.arraycopy):"+Arrays.toString(finalMergedArr));
+        int[] arr1={2,4,6};
+        int[] arr2={1,3,5,7,9};
+        //A simple technique to merge arrays...
+        int[] r1=merge(arr1,arr2);
+        System.out.println("Merged Array:"+Arrays.toString(r1));
+
+        //To merge array elements alternatively...
+        int[] r2=mergeAlternatively(arr1,arr2);
+        System.out.println("Merged Array(Alternatively):"+Arrays.toString(r2));
+
+        //To merge 3 arrays that too in sorted order:
+        int[] temp = mergeSorted(new int[]{1,3,5,7,9},new int[]{2,4,6,8,10});
+        int[] r3=mergeSorted(temp,new int[]{10,20,30,40});
+        System.out.println("Merged Array:"+Arrays.toString(r3));
+
+        //Merging arrays using streams:
+        int[] r4=mergeUsingStreams(new int[]{1,3,5,7,9},new int[]{2,4,6,8,10},new int[]{10,20,30,40});
+        System.out.println("Merged Array:"+Arrays.toString(r4));
+
+        int[] r5=Merge(new int[]{1,3,5,7,9},new int[]{2,4,6,8,10},new int[]{10,20,30,40});
+        System.out.println("Merged Array(System.arraycopy):"+Arrays.toString(r5));
     }
-    public static void mergeAlternatively(int[] arr1,int[] arr2) // TC & SC : O(n1+n2)
+    public static int[] merge(int[] arr1,int[] arr2)
     {
+        //TC:O(n1+n2+n3) & SC:O(n1+n2+n3)
+        //Creating a new array to store the result.
+        int[] merged=new int[arr1.length+arr2.length];
+        //Copying arr1 elements...
+        for(int i=0;i<arr1.length;i++)
+        {
+            merged[i]=arr1[i];
+        }
+        //Copying arr2 elements...
+        for(int i=0;i<arr2.length;i++)
+        {
+            merged[arr1.length+i]=arr2[i];
+        }
+        return merged;
+    }
+    public static int[] mergeAlternatively(int[] arr1,int[] arr2)
+    {
+        // TC & SC : O(n1+n2)
         int n1=arr1.length;
         int n2=arr2.length;
         //Determine the larger length...
         int maxLength=Math.max(n1,n2);
         //Creating a new array to store the result...
-        int[] mergedArray=new int[n1+n2];
-        int k=0;
+        int[] merged=new int[n1+n2];
+        int k=0; //This will be our new index for merged[]
         //We need to loop through the maximum length of 2 arrays...
         for (int i=0;i<maxLength;i++)
         {
             if(i<n1)
             {
-                mergedArray[k++]=arr1[i]; //Selects elements from 1st array.
+                //Selects an element from arr1.
+                merged[k++]=arr1[i];
             }
             if (i<n2)
             {
-                mergedArray[k++]=arr2[i]; //Selects elements from 2nd array.
+                //Selects an element from arr2.
+                merged[k++]=arr2[i];
             }
         }
-        System.out.println("Merged Array(Alternatively):"+ Arrays.toString(mergedArray));
+        return merged;
     }
-    public static int[] mergeSorted(int[] arr1,int[] arr2)  // TC & SC : O(n1+n2)
+    public static int[] mergeSorted(int[] arr1,int[] arr2)
     {
+        // TC & SC : O(n1+n2)
+        //Finding lengths of 2 arrays.
         int n1=arr1.length;
         int n2=arr2.length;
-        //Creating a new array to store the result...
-        int[] mergedArray=new int[n1+n2];
-        int i=0,j=0,k=0;
-        //Merge elements in sorted order.
-        while(i<n1&&j<n2)
+        //Creating a new array to store the result.
+        int[] merged=new int[n1+n2];
+        int i=0,j=0,k=0;//where, i-->arr1,j-->arr2,k-->merged
+        //Merging array elements in sorted order...
+        while(i<n1 && j<n2)
         {
-            if(arr1[i]<arr2[j])
+            if(arr1[i] < arr2[j])
             {
-                mergedArray[k++]=arr1[i++]; //Selects element from arr1
+                merged[k++]=arr1[i++]; //Selects an element from arr1.
             }
             else {
-                mergedArray[k++]=arr2[j++]; //Selects element from arr2
+                merged[k++]=arr2[j++]; //Selects an element from arr2.
             }
         }
         //Now we need to copy the remaining elements from arr1.
-        while (i<n1)
+        while(i<n1)
         {
-            mergedArray[k++]=arr1[i++];
+            merged[k++]=arr1[i++];
         }
         //Now we need to copy the remaining elements from arr2.
-        while (j<n2)
+        while(j<n2)
         {
-            mergedArray[k++]=arr2[j++];
+            merged[k++]=arr2[j++];
         }
-        return mergedArray;
+        return merged;
     }
-    public static void merge(int[] arr1,int[] arr2,int[] arr3) //By using streams...
+    public static int[] mergeUsingStreams(int[] arr1, int[] arr2, int[] arr3)
     {
-        int[] merged=IntStream
+        return IntStream
                 .concat(IntStream.concat(Arrays.stream(arr1),Arrays.stream(arr2)),Arrays.stream(arr3))
-                        .toArray();
-        System.out.println("Merged Array by using streams:"+Arrays.toString(merged));
+                .sorted()
+                .toArray();
     }
-    public static int[] fastMerge(int[] arr1,int[] arr2,int[] arr3) // TC & SC : O(n1 + n2 + n3)
+    public static int[] Merge(int[] arr1,int[] arr2,int[] arr3)
     {
-        int[] mergedArray=new int[arr1.length+ arr2.length+ arr3.length];
-        System.arraycopy(arr1,0,mergedArray,0,arr1.length);
-        System.arraycopy(arr2,0,mergedArray,arr1.length,arr2.length);
-        System.arraycopy(arr3,0,mergedArray,arr1.length+arr2.length,arr3.length);
-        return mergedArray;
+        // TC & SC : O(n1 + n2 + n3)
+        int[] merged=new int[arr1.length+ arr2.length+ arr3.length];
+        System.arraycopy(arr1,0,merged,0,arr1.length);
+        System.arraycopy(arr2,0,merged,arr1.length,arr2.length);
+        System.arraycopy(arr3,0,merged,arr1.length+arr2.length,arr3.length);
+        return merged;
     }
 }
