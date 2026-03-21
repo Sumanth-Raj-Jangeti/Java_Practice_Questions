@@ -8,14 +8,13 @@ public class Remove_Duplicates {
     public static void main(String[] args) {
         //A program to remove duplicates from an array...
         int[] arr={1,4,6,5,2,1,7,2,1,2}; // Unsorted Array
-        int[] arr2={1,4,6,5,2,1,7,2,1,2};
         int[] uniqueArr= removeDuplicates(arr);    //Method Call - Nested Approach
         System.out.println("Array after removing duplicates(NESTED LOOPS):"+Arrays.toString(uniqueArr));
-        deleteDuplicates(arr);       //Method Call - Sorting+scan
-        uniqueElements(arr2);        //Method Call - HashSet Approach
-        uniqueEle(arr2);             //Method Call - HashMap Approach
-        findUniqueElements(arr2);    //Method Call - Freq[] Approach
-        clearDuplicates(arr);       //Method Call - Index Marking Approach
+        deleteDuplicates(new int[]{1,4,6,5,2,1,7,2,1,2});       //Method Call - Sorting+scan
+        uniqueElements(new int[]{1,4,6,5,2,1,7,2,1,2});        //Method Call - HashSet Approach
+        uniqueEle(new int[]{1,4,6,5,2,1,7,2,1,2});             //Method Call - HashMap Approach
+        findUniqueElements(new int[]{1,4,6,5,2,1,7,2,1,2});    //Method Call - Freq[] Approach
+        clearDuplicates(new int[]{1,4,6,5,2,1,7,2,1,2});       //Method Call - Index Marking Approach
     }
     public static int[] removeDuplicates(int[] arr) //By using Nested Loops
     {                                               //TC:O(n^2) & SC:O(n)
@@ -126,10 +125,10 @@ public class Remove_Duplicates {
         //all elements shd be strictly less than the array's length.
         //Insertion order is not preserved.
         System.out.println("\nArray after removing duplicates(Index Marking):");
-        for(int i=0;i< arr.length;i++)
+        for(int i=0;i<arr.length;i++)
         {
             int index=Math.abs(arr[i]);
-            if(index< arr.length && arr[index]>0)
+            if(index<arr.length && arr[index]>0)
             {
                 System.out.print(index+" ");
                 arr[index]=-arr[index];
