@@ -2,7 +2,7 @@ package com.arrays.practice;
 
 import java.util.Arrays;
 
-public class Find_First_Last_Position_In_SortedArray_LC33 {
+public class Find_First_Last_Position_In_SortedArray_LC34 {
     public static void main(String[] args) {
         int[] arr={5,6,6,7,7,8,8,8,8,8,9};
         int target=8;
