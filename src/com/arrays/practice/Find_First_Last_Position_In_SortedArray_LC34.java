@@ -46,3 +46,4 @@ public class Find_First_Last_Position_In_SortedArray_LC34 {
         return last;
     }
 }
+//Follow-up question --> Also CountAllOccurrences_Of_A_Element_InSortedArray
