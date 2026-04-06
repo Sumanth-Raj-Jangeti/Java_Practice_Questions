@@ -36,7 +36,7 @@ class Transactions
         this.timeStamp=timeStamp;
     }
 }
-public class Tester {
+public class Concept1EX {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter no.of transactions:");
