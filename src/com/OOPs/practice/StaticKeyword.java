@@ -1,4 +1,4 @@
-package com.concepts.practice;
+package com.OOPs.practice;
 
 class Customer {
     private String customerId;
@@ -57,12 +57,13 @@ class Customer {
         System.out.println();
     }
     public double payBill(double totalPrice) {
-        double discountPercentage = 5;
+        double discountPercentage = 0;//Guest customer
         double priceAfterDiscount = totalPrice * (1 - (discountPercentage / 100));
         double finalBillAmount = priceAfterDiscount + Customer.deliveryCharge;
         return finalBillAmount;
     }
 }
+
 public class StaticKeyword {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Sam", 9945000009L, "Carolina Street, Springfield, 62702");

@@ -1,10 +1,11 @@
-package com.concepts.practice;
+package com.OOPs.practice;
+
+import java.util.Objects;
 
 class Order {
     private static int orderIDCounter;
     private int orderId;
-    private Customer_C1 customer;//phase 2:(Order has a Customer_C1) Aggregation with Customer_C1 class
-    private Food[] orderedFoods; //phase 1:(Order has a Food) Aggregation with Food class
+    private Food[] orderedFoods; //phase 1:(Order has a Food, Aggregation with Food class)
     private double totalPrice;
     private String status;
     static {
@@ -20,7 +21,7 @@ class Order {
     }
     public int getTotalNoOfOrders() {
         return Order.orderIDCounter - 100;
-    }
+    }  //refer this imp
     public int getOrderId() {
         return orderId;
     }
@@ -45,10 +46,6 @@ class Order {
     public void setStatus(String status) {
         this.status = status;
     }
-    public Customer_C1 getCustomer() { return customer; }
-    public void setCustomer(Customer_C1 customer) {
-        this.customer = customer;
-    }
 
     public double calculateTotalPrice(String paymentMode) {
         double foodPrice = 0;
@@ -68,7 +65,7 @@ class Order {
         return finalPrice;
     }
 }
-class Food {
+final class Food {
     private String foodName;
     private String cuisine;
     private String foodType;
@@ -105,6 +102,26 @@ class Food {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+   /* equals method of Object class overridden for comparing two Food objects
+    based on foodName and foodType
+    use this code if you want to compare both Food obj's w.r.t their content.
+    By default .equals() behaves exactly same like (==) operator -->
+    it checks whether both obj's point to same memory addresses or not.
+    */
+    @Override
+    public boolean equals(Object obj) {
+        Food otherFood = (Food) obj;
+        if (this.foodName.equals(otherFood.foodName)) {
+            if (this.foodType.equals(otherFood.foodType))
+                return true;
+        }
+        return false;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(foodName, cuisine, foodType, quantityAvailable, unitPrice);
+    }
 }
 class Bill{
     private static int counter;
@@ -134,7 +151,7 @@ class Bill{
         this.paymentMode = paymentMode;
     }
 
-    public void generateBill(Order order) {
+    public void generateBill(Order order) { //Here a reference of an order is passed to this method.
         System.out.println("Bill details \n***********");
         System.out.println("Bill Id : " + this.getBillId());
         System.out.println("Items ordered : ");
@@ -149,27 +166,46 @@ class Bill{
 public class Aggregation_HAS_A {
     public static void main(String[] args) {
         //Creating food objects.
+        //1st
         Food f1 = new Food();
         f1.setFoodName("Pizza");
         f1.setCuisine("Italian");
         f1.setFoodType("Veg");
         f1.setQuantityAvailable(10);
         f1.setUnitPrice(122.0);
-
+        //2nd
         Food f2 = new Food();
         f2.setFoodName("Burger");
         f2.setCuisine("American");
         f2.setFoodType("Non-Veg");
         f2.setQuantityAvailable(1);
         f2.setUnitPrice(131.45);
-
+        //3rd
+        Food f3 = new Food();
+        f3.setFoodName("Sandwich");
+        f3.setCuisine("Continental");
+        f3.setFoodType("Veg");
+        f3.setQuantityAvailable(100);
+        f3.setUnitPrice(10);
+        //4th
+        Food f4 = new Food();
+        f4.setFoodName("Sandwich");
+        f4.setCuisine("Continental");
+        f4.setFoodType("Veg");
+        f4.setQuantityAvailable(100);
+        f4.setUnitPrice(10);
         // Step 2: Store in array
-        Food[] food = {f1, f2};
-
+        Food[] food = {f1, f2,f3,f4};
         // Step 3: Pass to Order (Aggregation)
         Order order = new Order(food);
-
         Bill bill1 = new Bill("UPI");
         bill1.generateBill(order); //(Association)
+        System.out.println();
+        if (f3.equals(f4)) {
+            System.out.println("They have same content");
+        } else {
+            System.out.println("They don't have same content");
+        }
+        System.out.println("f1 HashCode:"+f3.hashCode()+" "+"\nf2 HashCode:"+f4.hashCode());
     }
 }

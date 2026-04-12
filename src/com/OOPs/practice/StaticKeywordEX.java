@@ -1,4 +1,4 @@
-package com.concepts.practice;
+package com.OOPs.practice;
 
 class StaticKeywordEX {
     public static void main(String[] args) {
