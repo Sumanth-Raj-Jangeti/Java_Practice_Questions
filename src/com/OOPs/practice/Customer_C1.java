@@ -101,7 +101,7 @@ class premiumCustomer extends Customer_C1 {
     public void setDiscountPercentage(float discountPercentage) { this.discountPercentage = discountPercentage; }
     public premiumCustomer(String name, long mobileNo, Address address) {
         super(name, mobileNo, address);
-        this.discountPercentage = 5.0f;
+        this.discountPercentage = 8.0f;
     }
     @Override
     public double payBill(double totalPrice) {
