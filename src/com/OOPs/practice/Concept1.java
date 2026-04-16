@@ -1,13 +1,13 @@
 package com.OOPs.practice;
 
-class Teacher {
+class Lecturer {
     //Declaring instance var's.
     private String teacherName;
     private String subject;
     private double salary;
 
     //Creating a constructor.
-    public Teacher(String teacherName,String subject,double salary){
+    public Lecturer(String teacherName, String subject, double salary){
         this.teacherName=teacherName;
         this.subject=subject;
         this.salary=salary;
@@ -35,13 +35,13 @@ class Teacher {
 }
 public class Concept1 {
     public static void main(String[] args) {
-        Teacher t1 = new Teacher("Alex","Java Fundamental",1200.0);
-        Teacher t2 = new Teacher("John","RDBMS",800.0);
-        Teacher t3 = new Teacher("Sam","Networking",900.0);
-        Teacher t4 = new Teacher("Maria","Python",900.0);
+        Lecturer t1 = new Lecturer("Alex","Java Fundamental",1200.0);
+        Lecturer t2 = new Lecturer("John","RDBMS",800.0);
+        Lecturer t3 = new Lecturer("Sam","Networking",900.0);
+        Lecturer t4 = new Lecturer("Maria","Python",900.0);
 
         //Create an array of type Teacher
-        Teacher[] t = new Teacher[]{t1,t2,t3,t4};
+        Lecturer[] t = new Lecturer[]{t1,t2,t3,t4};
 
         //Displaying teachers...
         for(int i=0;i<t.length;i++)
