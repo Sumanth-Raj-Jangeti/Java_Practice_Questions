@@ -1,16 +1,7 @@
 package com.regex.practice;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Quantifiers {
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("a?");
-        Matcher matcher = pattern.matcher("abaabaaab");
-        while(matcher.find()){
-            System.out.println(matcher.start()+"...."+matcher.group());
-        }
-        System.out.println();
         String regex1 = "Welcome.*";
         String str1 = "Welcome to India";
 
@@ -21,13 +12,13 @@ public class Quantifiers {
         String str3 = "1";
 
         String regex4 = "[Employee].?";
-        String str4 = "Employeee";
+        String str4 = "Employee";
 
         String regex5 = "[Employee].*";
         String str5 = "Employeee";
 
         String regex6 = "[P-Z]{8,10}";
-        String str6 = "QRSTUVWX";
+        String str6 = "QRSTUVW";
 
         String regex7 = "[Employee]+";
         String str7 = "Employeeeeee";

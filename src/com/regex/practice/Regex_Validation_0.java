@@ -1,5 +1,8 @@
 package com.regex.practice;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Regex_Validation_0 {
     public static boolean checkNameValidity(String name) {
         /*Rules:
@@ -37,6 +40,17 @@ public class Regex_Validation_0 {
         String regex = "^(http|https)(://)(www.)?[a-zA-Z0-9]{2,8}[.](com|org|net)$";
         return webAddress.matches(regex);
     }
+    public static boolean checkMobileNumberValidity(String mobileNo){
+        Pattern pattern = Pattern.compile("^(0|91)?[6789][0-9]{9}$");
+        Matcher matcher = pattern.matcher(mobileNo);
+
+        return matcher.find() && matcher.group().equals(mobileNo);
+    }
+    public static boolean checkEmailValidity(String email){
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]+([._%+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,})+$");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.find() && matcher.group().equals(email);
+    }
     public static void main(String[] args) {
         String name = "SirAlexander Fleming SirAlexand";
         System.out.println("The name is "+ (checkNameValidity(name) ? "valid!" : "invalid!"));
@@ -44,6 +58,10 @@ public class Regex_Validation_0 {
         System.out.println("The password is "+ (checkPasswordValidity(password) ? "valid!" : "invalid!"));
         String webAddress = "http://www.google.com";
         System.out.println("The web address is "+ (checkWebAddressValidity(webAddress) ? "valid!" : "invalid!"));
+        String mobileNumber="919912017943";
+        System.out.println("The mobile number is "+(checkMobileNumberValidity(mobileNumber)?"VALID":"INVALID"));
+        String email = "sumanthraj529@gmail.com";
+        System.out.println("The email is:"+(checkEmailValidity(email)?"VALID":"INVALID"));
     }
 }
 
